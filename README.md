@@ -54,6 +54,17 @@ Loss and risk aversion suggest that options described as riskier are chosen less
 
 Four regressors were compared: **Gradient Boosting, XGBoost, Random Forest and SVR**. The comparison used **9-fold cross-validation** with MSE as the metric. Each fold holds 100 validation problems and 800 training problems, which become 1,600 rows after augmentation.
 
+Average validation MSE across the 9 folds:
+
+| Algorithm | Mean CV MSE |
+|---|---|
+| **SVR** | **0.0292** |
+| Gradient Boosting | 0.0334 |
+| Random Forest | 0.0389 |
+| XGBoost | 0.0405 |
+
+![Mean 9-fold CV MSE by algorithm](images/cv_mse_by_algorithm.png)
+
 - **SVR** achieved the lowest average validation error and was selected. In the notebook's comparison it already runs with its tuned hyperparameters, while the other models use default settings.
 - The SVR hyperparameters were tuned with the same 9-fold scheme. The final values are `C=2` and `epsilon=0.01`, with all other parameters at their defaults.
 
